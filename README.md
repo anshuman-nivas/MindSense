@@ -1,130 +1,134 @@
-# MindSense - Sentiment Analysis for Mental Health 🧠💬
+# MindSense – Sentiment Analysis for Mental Health 🧠💬
 
-This project explores the use of Natural Language Processing (NLP) techniques to analyze and classify sentiments associated with various mental health conditions. The goal is to extract meaningful insights from textual data and build robust models to predict mental health conditions based on linguistic patterns.
-
----
-
-## 📊 Dataset Overview
-
-- **Source**: <a href="https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health/data" target="_blank">
-    <img src="https://kaggle.com/static/images/site-logo.png" alt="Kaggle" width="150" style="margin: 10px;"/>
-</a>
-
-- **Classes and Distribution**:
-  - **Normal**: 16,343
-  - **Depression**: 15,404
-  - **Suicidal**: 10,652
-  - **Anxiety**: 3,841
-  - **Bipolar**: 2,777
-  - **Stress**: 2,587
-  - **Personality Disorder**: 1,077
+This project applies **Natural Language Processing (NLP)** to analyze and classify sentiments related to different mental health conditions. The aim is to extract meaningful insights from textual data and develop models capable of identifying mental health patterns based on linguistic cues.
 
 ---
 
-## 🧪 Exploratory Data Analysis (EDA)
+## 📊 Dataset
 
-### Key Steps:
-1. **Bar Graphs**:
-   - Visualized the top 15 most frequent words after removing stop words for each condition.
-   - Example insights:
-     - **Anxiety**: Dominated by words like "anxiety", "feel", and "know".
-     - **Normal**: Positive words like "good" and "day" were frequent.
-     - **Suicidal**: Words like "want", "life", and "anymore" reflected deep contemplation.
+* **Source**: [Kaggle Dataset](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health/data)
 
-2. **Most Common Words Analysis**:
-   - Identified distinct word patterns for each mental health condition.
-   - Common themes across conditions include "feel", "like", and "want".
-   - Each condition exhibited unique linguistic markers (e.g., "anxiety" in Anxiety, "depression" in Depression).
+* **Class Distribution**:
 
-3. **Word Clouds**:
-   - Generated word clouds to visualize dominant terms across all conditions.
-   - Condition-specific terms revealed distinct emotional and contextual focuses:
-     - **Depression**: "feel", "life", "depression"
-     - **Stress**: "stress", "help", "work"
-     - **Suicidal Thoughts**: "want", "life", "die"
+  * Normal: 16,343
+  * Depression: 15,404
+  * Suicidal: 10,652
+  * Anxiety: 3,841
+  * Bipolar: 2,777
+  * Stress: 2,587
+  * Personality Disorder: 1,077
 
 ---
 
-## 🔧 Preprocessing
+## 🔎 Exploratory Data Analysis (EDA)
 
-1. **Steps**:
-   - Tokenized text into words.
-   - Removed punctuation, special characters, and stop words.
-   - Converted text to lowercase.
-   - Applied stemming/lemmatization.
+**Main Steps:**
 
-2. **Balancing the Dataset**:
-   - Used **data augmentation** techniques:
-     - Synonym replacement and insertion.
-     - Random word swapping within sentences.
-   - Applied **TF-IDF** with **SMOTE** for further balancing.
+1. **Word Frequency Analysis**
 
----
+   * Plotted the top 15 most frequent terms (after stop word removal) for each condition.
+   * Example takeaways:
 
-## 🧠 Modeling and Results
+     * *Anxiety*: Frequent words included *anxiety*, *feel*, *know*.
+     * *Normal*: Positive terms like *good* and *day* dominated.
+     * *Suicidal*: Keywords such as *want*, *life*, *anymore* reflected distress.
 
-### Techniques Used:
-1. **TF-IDF + SMOTE**:
-   - Trained classifiers like **XGBoost**, achieving:
-     - **Accuracy**: 74%
-     - **Improved F1 scores** on imbalanced classes.
+2. **Condition-specific Word Patterns**
 
-2. **Word2Vec + Bi-LSTM**:
-   - Leveraged word embeddings and a **Bidirectional LSTM** model:
-     - **Accuracy**: 76%
-     - Significantly improved F1 scores for minority classes.
+   * Shared terms like *feel*, *like*, *want* appeared across multiple conditions.
+   * Unique linguistic markers stood out (e.g., *anxiety* in Anxiety, *depression* in Depression).
 
-3. **Other Models**:
-   - Explored **CNN** and traditional **LSTM** models, but Bi-LSTM outperformed them.
+3. **Word Clouds**
+
+   * Generated visual word clouds for each class, highlighting emotional and contextual focus:
+
+     * *Depression*: *feel*, *life*, *depression*
+     * *Stress*: *stress*, *help*, *work*
+     * *Suicidal*: *want*, *life*, *die*
 
 ---
 
-## 🌟 Insights and Learnings
+## 🧹 Data Preprocessing
 
-- **Emotional Patterns**:
-  - Distinct words provide insights into the emotional and mental state of individuals.
-  - For example, terms like "help" and "work" are stress indicators, while "life" and "anymore" are red flags for suicidal tendencies.
+1. **Cleaning Steps**:
 
-- **Feature Importance**:
-  - Certain terms are key predictors for specific conditions, making them valuable features in classification models.
+   * Tokenization
+   * Removal of punctuation, special characters, and stop words
+   * Lowercasing
+   * Stemming/Lemmatization
 
-- **Challenges**:
-  - Balancing the dataset required significant effort, but techniques like **SMOTE** and data augmentation proved effective.
-  - Computational constraints limited deeper experimentation with larger models.
+2. **Balancing Techniques**:
 
----
-
-## 🚀 Applications
-
-- **Mental Health Monitoring**:
-  - Detect early signs of mental health issues from textual input.
-  
-- **Intervention Systems**:
-  - Flag critical terms like "suicide" or "kill" for timely intervention.
-
-- **Emotion Detection**:
-  - Identify emotional states associated with different mental health conditions.
+   * Applied **data augmentation** (synonym replacement, insertion, random swaps).
+   * Combined **TF-IDF features** with **SMOTE** to handle class imbalance.
 
 ---
 
-## 🛠️ Tools and Technologies
+## 🤖 Modeling and Results
 
-- **Libraries**:
-  - `pandas`, `numpy`, `seaborn`, `matplotlib`, `sklearn`
-  - `XGBoost`, `LightGBM`, `CatBoost`, `imblearn`, `gensim` (for Word2Vec)
-  - `TensorFlow`, `Keras` (for LSTM/CNN modeling)
+### Approaches Tested:
 
-- **Techniques**:
-  - Data preprocessing (Tokenization, Lemmatization, Stop word removal)
-  - Data balancing (SMOTE, augmentation)
-  - Visualization (Bar graphs, word clouds)
+1. **TF-IDF + SMOTE + Traditional Classifiers**
+
+   * Models such as **XGBoost** performed well.
+   * Achieved **74% accuracy** with improved F1 scores, especially for minority classes.
+
+2. **Word2Vec + Bi-LSTM**
+
+   * Leveraged embeddings with a **Bidirectional LSTM**.
+   * Outperformed other models with **76% accuracy** and higher F1 scores for underrepresented conditions.
+
+3. **Additional Models**
+
+   * CNN and vanilla LSTM were explored but underperformed compared to Bi-LSTM.
+
+---
+
+## 🌟 Key Insights
+
+* **Linguistic Indicators**:
+
+  * Stress-related text often mentioned *help* and *work*.
+  * Suicidal tendencies were strongly tied to words like *life* and *anymore*.
+
+* **Feature Importance**:
+
+  * Specific keywords emerged as strong predictors for particular conditions.
+
+* **Challenges**:
+
+  * Significant effort was required to mitigate class imbalance.
+  * Computational limitations restricted experiments with larger deep learning models.
+
+---
+
+## 🚀 Potential Applications
+
+* **Early Detection**: Identify warning signs of mental health struggles in user-generated text.
+* **Crisis Intervention**: Automatically flag urgent phrases (e.g., *suicide*, *kill*) for timely support.
+* **Emotion Profiling**: Track emotional trends and sentiment shifts across different conditions.
+
+---
+
+## 🛠️ Tools & Technologies
+
+* **Libraries**:
+
+  * Data: `pandas`, `numpy`
+  * Visualization: `matplotlib`, `seaborn`
+  * ML/DL: `sklearn`, `XGBoost`, `LightGBM`, `CatBoost`, `imblearn`
+  * NLP: `gensim` (Word2Vec), `TensorFlow`, `Keras`
+
+* **Techniques**:
+
+  * Text preprocessing (tokenization, lemmatization, stop word removal)
+  * Data balancing (SMOTE, augmentation)
+  * Visualization (word clouds, frequency plots)
 
 ---
 
 ## 🖋️ Conclusion
 
-This project showcases the potential of NLP in understanding and predicting mental health conditions through textual data. By combining EDA, feature engineering, and robust modeling techniques, we can build systems that not only provide insights but also serve as tools for early detection and intervention in mental health care.
+This project highlights how NLP can provide valuable insights into mental health conditions through language analysis. By combining **EDA**, **feature engineering**, and **robust modeling**, it demonstrates how text-based signals can be leveraged for **early detection** and **intervention support** in mental health care.
 
 ---
-
-Feel free to fork the repository and explore the code. Contributions and suggestions are welcome!
