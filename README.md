@@ -71,12 +71,12 @@ This project applies **Natural Language Processing (NLP)** to analyze and classi
 1. **TF-IDF + SMOTE + Traditional Classifiers**
 
    * Models such as **XGBoost** performed well.
-   * Achieved **74% accuracy** with improved F1 scores, especially for minority classes.
+   * Achieved **72% accuracy** with improved F1 scores, especially for minority classes.
 
 2. **Word2Vec + Bi-LSTM**
 
    * Leveraged embeddings with a **Bidirectional LSTM**.
-   * Outperformed other models with **76% accuracy** and higher F1 scores for underrepresented conditions.
+   * Outperformed other models with **88% accuracy** and higher F1 scores for underrepresented conditions.
 
 3. **Additional Models**
 
@@ -132,3 +132,4 @@ This project applies **Natural Language Processing (NLP)** to analyze and classi
 This project highlights how NLP can provide valuable insights into mental health conditions through language analysis. By combining **EDA**, **feature engineering**, and **robust modeling**, it demonstrates how text-based signals can be leveraged for **early detection** and **intervention support** in mental health care.
 
 ---
+
