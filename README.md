@@ -1,4 +1,4 @@
-# MindSense – Sentiment Analysis for Mental Health 🧠💬
+# Cogni-Text – Sentiment Analysis for Mental Health 🧠💬
 
 This project applies **Natural Language Processing (NLP)** to analyze and classify sentiments related to different mental health conditions. The aim is to extract meaningful insights from textual data and develop models capable of identifying mental health patterns based on linguistic cues.
 
